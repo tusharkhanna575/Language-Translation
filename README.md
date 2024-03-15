@@ -25,7 +25,7 @@ Open the web app in Streamlit
  [![Streamlit](https://img.shields.io/badge/Made%20with%20-Streamlit-red)](https://streamlit.io/)
   
   Star my  repo here:
-[![Star](https://img.shields.io/github/stars/HarisankarSNair/LanguageTranslator.svg?logo=github&style=social)](https://gitHub.com/HarisankarSNair/LanguageTranslator)
+[![Star](https://img.shields.io/github/stars/tusharkhanna575/Language-Translation)](https://gitHub.com/tusharkhanna575/Language-Translation)
   
  
 ## Authors
