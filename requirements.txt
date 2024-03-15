@@ -1,4 +1,5 @@
 google-trans-new
 streamlit
 gtts
-
+translate
+pyperclip
