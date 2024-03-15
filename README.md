@@ -5,14 +5,16 @@ An app for translating from one language to another.Almost all world languages a
  
  ## Features
  * Translates to any language
+ * Copies that translation to the clipboard
  * App also generates an audio file of the translation
- * And lets  you download the audio file
+ * And lets you download the audio file
 
 ## Requirements
 
 * Streamlit - open source app framework for Machine Learning & Data Science
 * google-trans-new - google translate api
 * gTTS - google text to speech
+* pyperclip - copy to clipboard
 
 ## Badges
 
@@ -28,7 +30,7 @@ Open the web app in Streamlit
  
 ## Authors
 
-- [@harisankarsnair](https://www.github.com/HarisankarSNair)
+- [@tusharkhanna](https://www.github.com/tusharkhanna575)
 
   
 ## Demo
