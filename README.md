@@ -20,7 +20,7 @@ An app for translating from one language to another.Almost all world languages a
 
 Open the web app in Streamlit
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/harisankarsnair/languagetranslator/main/main.py)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-connects-india.streamlit.app/)
 
  [![Streamlit](https://img.shields.io/badge/Made%20with%20-Streamlit-red)](https://streamlit.io/)
   
