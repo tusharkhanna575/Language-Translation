@@ -35,7 +35,7 @@ Open the web app in Streamlit
   
 ## Demo
 
-App : https://share.streamlit.io/harisankarsnair/languagetranslator/main/main.py
+App : https://ai-connects-india.streamlit.app/
 
   
 ## Feedback
