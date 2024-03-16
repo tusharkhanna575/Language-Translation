@@ -37,10 +37,6 @@ Open the web app in Streamlit
 
 App : https://ai-connects-india.streamlit.app/
 
-  
-## Feedback
-
-If you have any feedback, please reach out to us at https://discuss.streamlit.io/t/language-translator-web-app-simply-translate/14267
 
   
 ## Acknowledgements
