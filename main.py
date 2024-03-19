@@ -18,7 +18,7 @@ Languages = {'bengali':'bn','bosnian':'bs', 'english':'en',
             }
 
 # Set the title of the web app
-st.title("AI Connects India")
+st.title("Breaking Barriers: AI Connects India")
 st.title("Language Translator:balloon:")
 
 # create a input box for source language in streamlit
