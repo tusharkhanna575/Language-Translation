@@ -1,37 +1,21 @@
 # Imported Libraries
-import translate # pip install translate
 import streamlit as st # pip install streamlit==0.82.0
 import gtts # pip install gtts
+from deep_translator import GoogleTranslator # pip install deep-translator
 import pyperclip # pip install pyperclip
 
 # Set the page configuration
 st.set_page_config(page_title='Simply! Translate', page_icon='translator-icon.png', 
-                   layout='wide', initial_sidebar_state='expanded')
+                   layout='wide', initial_sidebar_state='auto')
 
 # Language Codes
-Languages = {'afrikaans':'af','albanian':'sq','amharic':'am','arabic':'ar','armenian':'hy',
-             'azerbaijani':'az','basque':'eu','belarusian':'be','bengali':'bn','bosnian':'bs',
-             'bulgarian':'bg','catalan':'ca','cebuano':'ceb','chichewa':'ny',
-             'chinese (simplified)':'zh-cn','chinese (traditional)':'zh-tw','corsican':'co',
-             'croatian':'hr','czech':'cs','danish':'da','dutch':'nl','english':'en',
-             'esperanto':'eo','estonian':'et','filipino':'tl','finnish':'fi','french':'fr',
-             'frisian':'fy','galician':'gl','georgian':'ka','german':'de','greek':'el',
-             'gujarati':'gu','haitian creole':'ht','hausa':'ha','hawaiian':'haw','hebrew':'iw',
-             'hebrew':'he','hindi':'hi','hmong':'hmn','hungarian':'hu','icelandic':'is',
-             'igbo':'ig','indonesian':'id','irish':'ga','italian':'it','japanese':'ja',
-             'javanese':'jw','kannada':'kn','kazakh':'kk','khmer':'km','korean':'ko',
-             'kurdish (kurmanji)':'ku','kyrgyz':'ky','lao':'lo','latin':'la','latvian':'lv',
-             'lithuanian':'lt','luxembourgish':'lb','macedonian':'mk','malagasy':'mg',
-             'malay':'ms','malayalam':'ml','maltese':'mt','maori':'mi','marathi':'mr',
-             'mongolian':'mn','myanmar (burmese)':'my','nepali':'ne','norwegian':'no',
-             'odia':'or','pashto':'ps','persian':'fa','polish':'pl','portuguese':'pt',
-             'punjabi':'pa','romanian':'ro','russian':'ru','samoan':'sm','scots gaelic':'gd',
-             'serbian':'sr','sesotho':'st','shona':'sn','sindhi':'sd','sinhala':'si',
-             'slovak':'sk','slovenian':'sl','somali':'so','spanish':'es','sundanese':'su',
-             'swahili':'sw','swedish':'sv','tajik':'tg','tamil':'ta','telugu':'te',
-             'thai':'th','turkish':'tr','turkmen':'tk','ukrainian':'uk','urdu':'ur',
-             'uyghur':'ug','uzbek':'uz','vietnamese':'vi','welsh':'cy','xhosa':'xh',
-             'yiddish':'yi','yoruba':'yo','zulu':'zu'}
+Languages = {'bengali':'bn','bosnian':'bs', 'english':'en',
+             'gujarati':'gu', 'hindi':'hi','kannada':'kn',
+             'malayalam':'ml','marathi':'mr', 'odia':'or',
+             'punjabi':'pa','sindhi':'sd','sinhala':'si',
+             'somali':'so','sundanese':'su','swahili':'sw',
+             'tamil':'ta', 'telugu':'te','urdu':'ur',
+            }
 
 # Set the title of the web app
 st.title("AI Connects India")
@@ -39,31 +23,22 @@ st.title("Language Translator:balloon:")
 
 # create a input box for source language in streamlit
 option1 = st.selectbox('Input Language',
-                      ('english', 'afrikaans', 'albanian', 'amharic', 'arabic', 'armenian', 
-                       'azerbaijani', 'basque', 'belarusian', 'bengali', 'bosnian', 
-                       'bulgarian', 'catalan', 'cebuano', 'chichewa', 'chinese (simplified)', 
-                       'chinese (traditional)', 'corsican', 'croatian', 'czech', 'danish',
-                       'dutch',  'esperanto', 'estonian', 'filipino', 'finnish', 'french', 
-                       'frisian', 'galician', 'georgian', 'german', 'greek', 'gujarati', 
-                       'haitian creole', 'hausa', 'hawaiian', 'hebrew', 'hindi', 'hmong', 
-                       'hungarian', 'icelandic', 'igbo', 'indonesian', 'irish', 'italian', 
-                       'japanese', 'javanese', 'kannada', 'kazakh', 'khmer', 'korean', 
-                       'kurdish (kurmanji)', 'kyrgyz', 'lao', 'latin', 'latvian', 'lithuanian',
-                       'luxembourgish', 'macedonian', 'malagasy', 'malay', 'malayalam', 
-                       'maltese', 'maori', 'marathi', 'mongolian', 'myanmar (burmese)', 
-                       'nepali', 'norwegian', 'odia', 'pashto', 'persian', 'polish', 
-                       'portuguese', 'punjabi', 'romanian', 'russian', 'samoan', 'scots gaelic',
-                       'serbian', 'sesotho', 'shona', 'sindhi', 'sinhala', 'slovak', 'slovenian',
-                       'somali', 'spanish', 'sundanese', 'swahili', 'swedish', 'tajik', 'tamil', 
-                       'telugu', 'thai', 'turkish', 'turkmen', 'ukrainian', 'urdu', 'uyghur', 
-                       'uzbek', 'vietnamese', 'welsh', 'xhosa', 'yiddish', 'yoruba', 'zulu'))
+                      ('english', 'bengali', 'bosnian', 
+                       'gujarati', 'hindi', 'kannada', 
+                       'malayalam', 'marathi', 'odia', 
+                       'punjabi', 'sindhi', 'sinhala',
+                       'somali', 'sundanese', 'swahili', 
+                       'tamil', 'telugu', 'urdu'))
 
 # create a input box for destination language in streamlit
 option2 = st.selectbox('Output Language',
-                      ('hindi', 'afrikaans', 'albanian', 'amharic', 'arabic', 'armenian', 'azerbaijani', 'basque', 'belarusian', 'bengali', 'bosnian', 'bulgarian', 'catalan', 'cebuano', 'chichewa', 'chinese (simplified)', 'chinese (traditional)', 'corsican', 'croatian', 'czech', 'danish', 'dutch',  'esperanto', 'estonian', 'filipino', 'finnish', 'french', 'frisian', 'galician', 'georgian', 'german', 'greek', 'gujarati', 'haitian creole', 'hausa', 'hawaiian', 'hebrew', 'hindi', 'hmong', 'hungarian', 'icelandic', 'igbo', 'indonesian', 'irish', 'italian', 'japanese', 'javanese', 'kannada', 'kazakh', 'khmer', 'korean', 'kurdish (kurmanji)', 'kyrgyz', 'lao', 'latin', 'latvian', 'lithuanian', 'luxembourgish', 'macedonian', 'malagasy', 'malay', 'malayalam', 'maltese', 'maori', 'marathi', 'mongolian', 'myanmar (burmese)', 'nepali', 'norwegian', 'odia', 'pashto', 'persian', 'polish', 'portuguese', 'punjabi', 'romanian', 'russian', 'samoan', 'scots gaelic', 'serbian', 'sesotho', 'shona', 'sindhi', 'sinhala', 'slovak', 'slovenian', 'somali', 'spanish', 'sundanese', 'swahili', 'swedish', 'tajik', 'tamil', 'telugu', 'thai', 'turkish', 'turkmen', 'ukrainian', 'urdu', 'uyghur', 'uzbek', 'vietnamese', 'welsh', 'xhosa', 'yiddish', 'yoruba', 'zulu'))
+                      ('hindi', 'bengali', 'bosnian', 
+                       'gujarati', 'english', 'kannada', 
+                       'malayalam', 'marathi', 'odia', 
+                       'punjabi', 'sindhi', 'sinhala',
+                       'somali', 'sundanese', 'swahili', 
+                       'tamil', 'telugu', 'urdu'))
 
-# create a translator object
-translator = translate.Translator(to_lang=option2, from_lang=option1)
 
 st.write('''
 [![Star](https://img.shields.io/github/stars/tusharkhanna575/Language-Translation)](https://gitHub.com/tusharkhanna575/Language-Translation)
@@ -71,10 +46,15 @@ st.write('''
 ''')
 
 # create a text area for user input
-text = st.text_area("Enter text:",height=None,max_chars=None,key=None,help="Enter your text here")
+text = st.text_area("Enter text:",height=None,max_chars=500,key=None,help="Enter your text here")
 
 value1 = Languages[option1]
 value2 = Languages[option2]
+
+
+# create a translator object
+translator=GoogleTranslator(source='auto', target=value2)
+
 
 # create a button for translation
 if st.button('Translate Sentence'):
@@ -86,9 +66,10 @@ if st.button('Translate Sentence'):
     else:
         # translate the text
         translate = translator.translate(text)
+        print(translate)
         st.info(str(translate))
         # copy the translated text to clipboard
-        #pyperclip.copy(translate)
+        pyperclip.copy(translate)
         st.success("Translation is **successfully** completed! Translated text is copied to clipboard.")
         # create a button for text to speech
         converted_audio = gtts.gTTS(translate, lang=value2)
