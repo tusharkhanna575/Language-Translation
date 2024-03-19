@@ -66,7 +66,7 @@ if st.button('Translate Sentence'):
     else:
         # translate the text
         translate = translator.translate(text)
-        print(translate)
+        # print(translate)
         st.info(str(translate))
         # copy the translated text to clipboard
         # pyperclip.copy(translate)
