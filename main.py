@@ -69,8 +69,8 @@ if st.button('Translate Sentence'):
         print(translate)
         st.info(str(translate))
         # copy the translated text to clipboard
-        pyperclip.copy(translate)
-        st.success("Translation is **successfully** completed! Translated text is copied to clipboard.")
+        # pyperclip.copy(translate)
+        st.success("Translation is **successfully** completed!")
         # create a button for text to speech
         converted_audio = gtts.gTTS(translate, lang=value2)
         converted_audio.save("translated.mp3")
