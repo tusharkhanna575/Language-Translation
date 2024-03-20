@@ -9,34 +9,28 @@ st.set_page_config(page_title='Simply! Translate', page_icon='translator-icon.pn
                    layout='wide', initial_sidebar_state='auto')
 
 # Language Codes
-Languages = {'bengali':'bn','bosnian':'bs', 'english':'en',
-             'gujarati':'gu', 'hindi':'hi','kannada':'kn',
-             'malayalam':'ml','marathi':'mr', 'odia':'or',
-             'punjabi':'pa','sindhi':'sd','sinhala':'si',
-             'somali':'so','sundanese':'su','swahili':'sw',
+Languages = {'bengali':'bn','english':'en', 'gujarati':'gu', 
+             'hindi':'hi','kannada':'kn', 'malayalam':'ml',
+             'marathi':'mr', 'odia':'or', 'sindhi':'sd',
              'tamil':'ta', 'telugu':'te','urdu':'ur',
             }
 
 # Set the title of the web app
-st.title("Breaking Barriers: AI Connects India")
+st.title("AI Connects India")
 st.title("Language Translator:balloon:")
 
 # create a input box for source language in streamlit
 option1 = st.selectbox('Input Language',
-                      ('english', 'bengali', 'bosnian', 
-                       'gujarati', 'hindi', 'kannada', 
-                       'malayalam', 'marathi', 'odia', 
-                       'punjabi', 'sindhi', 'sinhala',
-                       'somali', 'sundanese', 'swahili', 
+                      ('english', 'bengali', 'gujarati', 
+                       'hindi', 'kannada', 'malayalam', 
+                       'marathi', 'odia', 'sindhi', 
                        'tamil', 'telugu', 'urdu'))
 
 # create a input box for destination language in streamlit
 option2 = st.selectbox('Output Language',
-                      ('hindi', 'bengali', 'bosnian', 
-                       'gujarati', 'english', 'kannada', 
-                       'malayalam', 'marathi', 'odia', 
-                       'punjabi', 'sindhi', 'sinhala',
-                       'somali', 'sundanese', 'swahili', 
+                      ('hindi', 'bengali', 'gujarati', 
+                       'english', 'kannada', 'malayalam',
+                       'marathi', 'odia', 'sindhi', 
                        'tamil', 'telugu', 'urdu'))
 
 
@@ -66,11 +60,11 @@ if st.button('Translate Sentence'):
     else:
         # translate the text
         translate = translator.translate(text)
-        # print(translate)
+        print(translate)
         st.info(str(translate))
         # copy the translated text to clipboard
         # pyperclip.copy(translate)
-        st.success("Translation is **successfully** completed!")
+        st.success("Translation is **successfully** completed! Translated text is copied to clipboard.")
         # create a button for text to speech
         converted_audio = gtts.gTTS(translate, lang=value2)
         converted_audio.save("translated.mp3")
