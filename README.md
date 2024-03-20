@@ -12,7 +12,7 @@ An app for translating from one language to another.Almost all world languages a
 ## Requirements
 
 * Streamlit - open source app framework for Machine Learning & Data Science
-* google-trans-new - google translate api
+* deep-translate - translation module
 * gTTS - google text to speech
 * pyperclip - copy to clipboard
 
